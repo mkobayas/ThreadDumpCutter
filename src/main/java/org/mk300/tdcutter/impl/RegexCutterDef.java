@@ -10,57 +10,56 @@ import java.util.regex.Pattern;
 
 import org.mk300.tdcutter.CutterDef;
 
-
 public class RegexCutterDef implements CutterDef {
 
-	private List<List<Pattern>> cutters = new ArrayList<>();
-	
-	@Override
-	public void init(File cutterDefDir) throws Exception {
-		for (File f : cutterDefDir.listFiles()) {
+    private List<List<Pattern>> cutters = new ArrayList<>();
 
-			List<Pattern> patternList = new ArrayList<>();
-			
-			for(String line : Files.readAllLines(f.toPath(), Charset.forName("UTF-8"))) {
-			    if(line.trim().startsWith("#")) {
-			        if(patternList.size() > 0) {
-			            cutters.add(patternList);
-	                    patternList = new ArrayList<>();
-			        }
-			        continue;
-			    }
-			    
-				line = line.replace("(", "\\(");
-				line = line.replace(")", "\\)");
-				line = line.replace("$", "\\$");
-				line = line.replace("[", "\\[");
-				line = line.replace("]", "\\]");
+    @Override
+    public void init(File cutterDefDir) throws Exception {
+        for (File f : cutterDefDir.listFiles()) {
 
-				Pattern p = Pattern.compile(line);
-				patternList.add(p);				
-			}
-			if(patternList.size() > 0) {
+            List<Pattern> patternList = new ArrayList<>();
+
+            for (String line : Files.readAllLines(f.toPath(), Charset.forName("UTF-8"))) {
+                if (line.trim().startsWith("#")) {
+                    if (patternList.size() > 0) {
+                        cutters.add(patternList);
+                        patternList = new ArrayList<>();
+                    }
+                    continue;
+                }
+
+                line = line.replace("(", "\\(");
+                line = line.replace(")", "\\)");
+                line = line.replace("$", "\\$");
+                line = line.replace("[", "\\[");
+                line = line.replace("]", "\\]");
+
+                Pattern p = Pattern.compile(line);
+                patternList.add(p);
+            }
+            if (patternList.size() > 0) {
                 cutters.add(patternList);
-			}
-		}
-	}
+            }
+        }
+    }
 
-	@Override
-	public boolean isMatch(List<String> stack) {
-		C : for(List<Pattern> patternList : cutters) {
-			if(stack.size() != patternList.size()) {
-				continue C;
-			}
-			
-			for(int i=0;i<stack.size();i++) {
-				Matcher m = patternList.get(i).matcher(stack.get(i));
-				if(!m.matches()) {
-					continue C;
-				}
-			}			
-			return true;
-		}
-		return false;
-	}
+    @Override
+    public boolean isMatch(List<String> stack) {
+        C: for (List<Pattern> patternList : cutters) {
+            if (stack.size() != patternList.size()) {
+                continue C;
+            }
+
+            for (int i = 0; i < stack.size(); i++) {
+                Matcher m = patternList.get(i).matcher(stack.get(i));
+                if (!m.matches()) {
+                    continue C;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 
 }

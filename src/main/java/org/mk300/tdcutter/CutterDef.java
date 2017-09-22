@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface CutterDef {
 
-	void init(File cutterDefDir) throws Exception;
-	
-	boolean isMatch(List<String> stack) throws Exception;
+    void init(File cutterDefDir) throws Exception;
+
+    boolean isMatch(List<String> stack) throws Exception;
 }
