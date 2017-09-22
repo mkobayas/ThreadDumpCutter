@@ -1,0 +1,41 @@
+##############################################################################
+"GC task thread#.*?
+##############################################################################
+JNI global references: .*?
+##############################################################################
+"VM Periodic Task Thread" .*?
+##############################################################################
+"VM Thread" .*? runnable 
+##############################################################################
+"Service Thread" .*?
+   java.lang.Thread.State: RUNNABLE
+##############################################################################
+"C2 CompilerThread.*?
+   java.lang.Thread.State: RUNNABLE
+##############################################################################
+"Signal Dispatcher" .*?
+   java.lang.Thread.State: RUNNABLE
+##############################################################################
+"Finalizer" .*?
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
+	- locked <.*?> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:189)
+##############################################################################
+"Reference Handler" .*?
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:503)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+	- locked <.*?> (a java.lang.ref.Reference$Lock)
+##############################################################################
+"Attach Listener".*?
+   java.lang.Thread.State: RUNNABLE
+##############################################################################
+"GC Daemon" .*?
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	at sun.misc.GC$Daemon.run(GC.java:117)
+	- locked <.*?> (a sun.misc.GC$LatencyLock)

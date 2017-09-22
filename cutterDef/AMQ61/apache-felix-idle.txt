@@ -1,0 +1,53 @@
+##############################################################
+"SCR Component Actor" .*?
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <.*?> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at org.apache.felix.scr.impl.ComponentActorThread.run(ComponentActorThread.java:76)
+	- locked <.*?> (a java.util.LinkedList)
+	at java.lang.Thread.run(Thread.java:744)
+##############################################################
+"fileinstall.*?
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:307)
+	- locked <.*?> (a org.apache.felix.fileinstall.internal.DirectoryWatcher)
+##############################################################
+"CM Event Dispatcher" .*?
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <.*?> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at org.apache.felix.cm.impl.UpdateThread.run(UpdateThread.java:77)
+	- locked <.*?> (a java.util.LinkedList)
+	at java.lang.Thread.run(Thread.java:744)
+##############################################################
+"CM Configuration Updater" .*?
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <.*?> (a java.util.LinkedList)
+	at java.lang.Object.wait(Object.java:503)
+	at org.apache.felix.cm.impl.UpdateThread.run(UpdateThread.java:77)
+	- locked <.*?> (a java.util.LinkedList)
+	at java.lang.Thread.run(Thread.java:744)
+##############################################################
+"FelixStartLevel" .*?
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <.*?> (a java.util.ArrayList)
+	at java.lang.Object.wait(Object.java:503)
+	at org.apache.felix.framework.FrameworkStartLevelImpl.run(FrameworkStartLevelImpl.java:279)
+	- locked <.*?> (a java.util.ArrayList)
+	at java.lang.Thread.run(Thread.java:744)
+##############################################################
+"FelixDispatchQueue" .*?
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <.*?> (a java.util.ArrayList)
+	at java.lang.Object.wait(Object.java:503)
+	at org.apache.felix.framework.util.EventDispatcher.run(EventDispatcher.java:1065)
+	- locked <.*?> (a java.util.ArrayList)
+	at org.apache.felix.framework.util.EventDispatcher.access$000(EventDispatcher.java:55)
+	at org.apache.felix.framework.util.EventDispatcher$1.run(EventDispatcher.java:102)
+	at java.lang.Thread.run(Thread.java:744)
