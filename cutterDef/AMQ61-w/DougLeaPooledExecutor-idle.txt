@@ -1,0 +1,8 @@
+"Thread-*
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	at EDU.oswego.cs.dl.util.concurrent.LinkedQueue.poll(Unknown Source)
+	- locked <*> (a java.lang.Object)
+	at EDU.oswego.cs.dl.util.concurrent.PooledExecutor.getTask(Unknown Source)
+	at EDU.oswego.cs.dl.util.concurrent.PooledExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:744)

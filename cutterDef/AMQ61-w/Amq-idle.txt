@@ -1,0 +1,5 @@
+##############################################################
+"ActiveMQ Configuration Watcher" *
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep(Native Method)
+	at org.fusesource.mq.fabric.ActiveMQServiceFactory$ConfigThread.run(ActiveMQServiceFactory.scala:561)

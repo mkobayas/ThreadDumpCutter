@@ -1,0 +1,35 @@
+##############################################################
+"ActiveMQ Transport*
+   java.lang.Thread.State: RUNNABLE
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:152)
+	at java.net.SocketInputStream.read(SocketInputStream.java:122)
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.fill(TcpBufferedInputStream.java:50)
+	at org.apache.activemq.transport.tcp.TcpTransport$2.fill(TcpTransport.java:609)
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.read(TcpBufferedInputStream.java:58)
+	at org.apache.activemq.transport.tcp.TcpTransport$2.read(TcpTransport.java:594)
+	at java.io.DataInputStream.readInt(DataInputStream.java:387)
+	at org.apache.activemq.openwire.OpenWireFormat.unmarshal(OpenWireFormat.java:258)
+	at org.apache.activemq.transport.tcp.TcpTransport.readCommand(TcpTransport.java:221)
+	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:213)
+	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:196)
+	at java.lang.Thread.run(Thread.java:744)
+##############################################################
+"ActiveMQ Transport Server*
+   java.lang.Thread.State: RUNNABLE
+	at java.net.PlainSocketImpl.socketAccept(Native Method)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530)
+	at java.net.ServerSocket.accept(ServerSocket.java:498)
+	at org.apache.activemq.transport.tcp.TcpTransportServer.run(TcpTransportServer.java:301)
+	at java.lang.Thread.run(Thread.java:744)
+##############################################################
+"ActiveMQ Transport Server Thread Handler*
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <*> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)
+	at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:467)
+	at org.apache.activemq.transport.tcp.TcpTransportServer$1.run(TcpTransportServer.java:375)
+	at java.lang.Thread.run(Thread.java:744)

@@ -19,7 +19,7 @@ public class ThreadDumpCutter {
     @Option(name = "-h", aliases = { "--Help" }, help = true)
     public boolean help;
 
-    @Option(name = "-t", aliases = { "--CutterType" }, usage = "Type of CutterDef", hidden = true)
+    @Option(name = "-t", aliases = { "--CutterType" }, usage = "Type of CutterDef")
     private CutterType cutterType = CutterType.REGREX;
 
     @Option(name = "-c", aliases = { "--CutterDef" }, usage = "Directory of CutterDef", required = true)

@@ -1,0 +1,16 @@
+######################################################
+"*
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	at java.util.TimerThread.mainLoop(Timer.java:552)
+	- locked <*> (a java.util.TaskQueue)
+	at java.util.TimerThread.run(Timer.java:505)
+######################################################
+"*
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <*> (a java.util.TaskQueue)
+	at java.lang.Object.wait(Object.java:503)
+	at java.util.TimerThread.mainLoop(Timer.java:526)
+	- locked <*> (a java.util.TaskQueue)
+	at java.util.TimerThread.run(Timer.java:505)

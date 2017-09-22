@@ -1,0 +1,7 @@
+##############################################################
+"JMX server connection*
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	at com.sun.jmx.remote.internal.ServerCommunicatorAdmin$Timeout.run(ServerCommunicatorAdmin.java:168)
+	- locked <*> (a [I)
+	at java.lang.Thread.run(Thread.java:744)

@@ -1,0 +1,25 @@
+##############################################################
+"*
+   java.lang.Thread.State: RUNNABLE
+	at java.net.PlainSocketImpl.socketAccept(Native Method)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530)
+	at java.net.ServerSocket.accept(ServerSocket.java:498)
+	at org.apache.karaf.main.Main$ShutdownSocketThread.run(Main.java:1543)
+##############################################################
+"*
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep(Native Method)
+	at org.apache.karaf.main.Main.doLock(Main.java:1439)
+	at org.apache.karaf.main.Main.lock(Main.java:1407)
+	at org.apache.karaf.main.Main$1.run(Main.java:330)
+##############################################################
+"*
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <*> (a org.apache.felix.framework.util.ThreadGate)
+	at org.apache.felix.framework.util.ThreadGate.await(ThreadGate.java:79)
+	- locked <*> (a org.apache.felix.framework.util.ThreadGate)
+	at org.apache.felix.framework.Felix.waitForStop(Felix.java:1024)
+	at org.apache.karaf.main.Main.awaitShutdown(Main.java:394)
+	at org.apache.karaf.main.Main.main(Main.java:545)

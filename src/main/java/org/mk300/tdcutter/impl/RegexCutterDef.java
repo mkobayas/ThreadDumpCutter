@@ -4,7 +4,9 @@ import java.io.File;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,12 +18,14 @@ public class RegexCutterDef implements CutterDef {
 
     @Override
     public void init(File cutterDefDir) throws Exception {
+        Map<String, Pattern> cache = new HashMap<>();
         for (File f : cutterDefDir.listFiles()) {
 
             List<Pattern> patternList = new ArrayList<>();
 
             for (String line : Files.readAllLines(f.toPath(), Charset.forName("UTF-8"))) {
-                if (line.trim().startsWith("#")) {
+                String tmp = line.trim();
+                if (tmp.startsWith("#") || tmp.length() == 0) {
                     if (patternList.size() > 0) {
                         cutters.add(patternList);
                         patternList = new ArrayList<>();
@@ -29,13 +33,17 @@ public class RegexCutterDef implements CutterDef {
                     continue;
                 }
 
-                line = line.replace("(", "\\(");
-                line = line.replace(")", "\\)");
-                line = line.replace("$", "\\$");
-                line = line.replace("[", "\\[");
-                line = line.replace("]", "\\]");
-
-                Pattern p = Pattern.compile(line);
+                Pattern p = cache.get(line);
+                if(p == null) {
+                    String orginal = line;
+                    line = line.replace("(", "\\(");
+                    line = line.replace(")", "\\)");
+                    line = line.replace("$", "\\$");
+                    line = line.replace("[", "\\[");
+                    line = line.replace("]", "\\]");
+                    p = Pattern.compile(line);
+                    cache.put(orginal, p);
+                }
                 patternList.add(p);
             }
             if (patternList.size() > 0) {

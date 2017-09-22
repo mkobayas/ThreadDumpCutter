@@ -1,0 +1,13 @@
+##############################################################
+"ActiveMQ Data File Writer" *
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:503)
+	at org.apache.activemq.store.kahadb.disk.journal.DataFileAppender.processQueue(DataFileAppender.java:304)
+	- locked <*> (a java.lang.Object)
+	at org.apache.activemq.store.kahadb.disk.journal.DataFileAppender$1.run(DataFileAppender.java:193)
+##############################################################
+"ActiveMQ Journal Checkpoint Worker" *
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep(Native Method)
+	at org.apache.activemq.store.kahadb.MessageDatabase$3.run(MessageDatabase.java:349)
