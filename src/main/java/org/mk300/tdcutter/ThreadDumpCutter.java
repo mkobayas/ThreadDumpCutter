@@ -96,7 +96,7 @@ public class ThreadDumpCutter {
     }
 
     private List<Path> findFiles(File inDir, String pattern) throws Exception {
-        final String regPattern = pattern.replace(".", "\\.").replace("*", ".*?");
+        final String regPattern = pattern.replace(".", "\\.").replace('?', '.').replace("*", ".*?");
 
         final List<Path> pathList = new ArrayList<>();
         Files.walkFileTree(inDir.toPath(), new SimpleFileVisitor<Path>() {
