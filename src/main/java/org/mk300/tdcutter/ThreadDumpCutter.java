@@ -36,10 +36,16 @@ public class ThreadDumpCutter {
 
     public void doMain() throws Exception {
 
-        CutterDef cutterDef = cutterType.getInstance();
-
-        File cutterDefDir = new File("cutterDef", cutterDefDirString);
-        cutterDef.init(cutterDefDir);
+        String baseDir = System.getProperty("TDC_BASE");
+        File base;
+        if(baseDir != null) {
+            base = new File(baseDir, "cutterDef");
+        } else {
+            base = new File("cutterDef");
+        }
+        File cutterDefDir = new File(base, cutterDefDirString);
+        
+        CutterDef cutterDef = cutterType.getInstance(cutterDefDir);
 
         List<Path> inFilePathList = findFiles(inDir, fileNamePattern);
 
